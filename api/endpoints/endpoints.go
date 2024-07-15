@@ -14,7 +14,7 @@ import (
 func CreateEndpoint() {
 	app := fiber.New()
 	app.Use(cors.New(cors.Config{
-        AllowOrigins: "http://localhost, http://127.0.0.1",
+        AllowOrigins: "http://localhost:3000, http://127.0.0.1",
         AllowHeaders: "Origin, Content-Type, Accept",
     }))
 	
