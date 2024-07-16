@@ -3,7 +3,6 @@ package endpoints
 
 import (
 	"github.com/gofiber/fiber/v2"
-	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/pentabyte/tvet/api/api/routes/courses"
 	"github.com/pentabyte/tvet/api/api/routes/departments"
 	"github.com/pentabyte/tvet/api/api/routes/jobs"
@@ -13,10 +12,7 @@ import (
 
 func CreateEndpoint() {
 	app := fiber.New()
-	app.Use(cors.New(cors.Config{
-        AllowOrigins: "http://localhost:3000, http://127.0.0.1",
-        AllowHeaders: "Origin, Content-Type, Accept",
-    }))
+	
 	
 	students.SetStudentRoutes(app)
 	jobs.SetJobsRoutes(app)
