@@ -9,7 +9,7 @@ import (
 
 func SetCoursesRoutes(app *fiber.App) {
 	app.Use(cors.New(cors.Config{
-        AllowOrigins: "http://localhost:3000, http://127.0.0.1",
+        AllowOrigins: "*",
         AllowHeaders: "Origin, Content-Type, Accept",
     }))
 	// Group routes under /api/v1/dependants
