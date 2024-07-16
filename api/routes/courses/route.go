@@ -9,7 +9,7 @@ import (
 
 func SetCoursesRoutes(app *fiber.App) {
 	app.Use(cors.New(cors.Config{
-        AllowOrigins: "*",
+        AllowOrigins: "https://idristvet.vercel.app,*",
         AllowHeaders: "Origin, Content-Type, Accept",
     }))
 	// Group routes under /api/v1/dependants
