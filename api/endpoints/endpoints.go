@@ -13,8 +13,9 @@ import (
 func CreateEndpoint() {
 	app := fiber.New()
 	app.Use(cors.New(cors.Config{
-        AllowOrigins: "http://localhost:3000, http://127.0.0.1,https://idristvet.vercel.app,*",
-        AllowHeaders: "Origin, Content-Type, Accept",
+		AllowOrigins: "*",
+        AllowMethods: "GET,POST,PUT,DELETE,OPTIONS",
+        AllowHeaders: "Origin, Content-Type, Accept, Authorization",
     }))
 	students.SetStudentRoutes(app)
 	jobs.SetJobsRoutes(app)
