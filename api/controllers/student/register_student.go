@@ -38,7 +38,10 @@ func CreateStudentAccount(c *fiber.Ctx) error {
 		return utilities.ShowError(c,errStr,fiber.StatusConflict)
 	}
 	//validate phone number
-	_,err = utilities.ValidatePhoneNumber(student.PhoneNumber,country_code)
+	phone,err := utilities.ValidatePhoneNumber(student.PhoneNumber,country_code)
+	if phone==""{
+		return utilities.ShowError(c,"enter vailid phone",fiber.StatusInternalServerError)
+	}
 	if err !=nil{
 		log.Fatal(err.Error())
 		return utilities.ShowError(c,err.Error(),fiber.StatusAccepted)
