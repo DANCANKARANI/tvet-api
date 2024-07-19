@@ -14,7 +14,7 @@ func SetJobsRoutes(app *fiber.App) {
     }))
 	// Group routes under /api/v1/dependants
 	auth := app.Group("/api/v1/job")
-	jobGroup := auth.Group("/",student.JWTMiddleware)
+	jobGroup := auth.Group("/")
 	jobGroup.Get("/",job.GetJobHandler)
 	jobGroup.Post("/",job.AddJobHandler )
 	jobGroup.Patch("/:id",job.UpdateJobHandler)

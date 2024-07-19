@@ -4,7 +4,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/pentabyte/tvet/api/api/controllers/sponsor"
-	"github.com/pentabyte/tvet/api/api/controllers/student"
+	//"github.com/pentabyte/tvet/api/api/controllers/student"
 )
 
 func SetSponsorsRoutes(app *fiber.App) {
@@ -14,7 +14,7 @@ func SetSponsorsRoutes(app *fiber.App) {
     }))
 	// Group routes under /api/v1/dependants
 	auth := app.Group("/api/v1/sponsor")
-	sponsorGroup := auth.Group("/",student.JWTMiddleware)
+	sponsorGroup := auth.Group("/")
 	sponsorGroup.Get("/",sponsor.GetSponsorHandler)
 	sponsorGroup.Post("/",sponsor.AddSponsorHandler )
 	sponsorGroup.Patch("/:id",sponsor.UpdateSponsorHandler)
