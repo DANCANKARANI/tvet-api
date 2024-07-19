@@ -4,7 +4,7 @@ import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/cors"
 	"github.com/pentabyte/tvet/api/api/controllers/job"
-	"github.com/pentabyte/tvet/api/api/controllers/student"
+	//"github.com/pentabyte/tvet/api/api/controllers/student"
 )
 
 func SetJobsRoutes(app *fiber.App) {
