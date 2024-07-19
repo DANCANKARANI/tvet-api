@@ -19,4 +19,4 @@ func SetCoursesRoutes(app *fiber.App) {
 	courseGroup.Post("/",course.AddCourseHandler )
 	courseGroup.Patch("/:id",course.UpdateCourseHandler)
 	courseGroup.Delete("/:id",course.DeleteCourseHandler)
-}
+}   

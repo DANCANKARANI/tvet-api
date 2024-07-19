@@ -37,8 +37,8 @@ type Course struct {
 	CreatedAt    time.Time      `json:"created_at" gorm:"autoCreateTime"`
 	UpdatedAt    time.Time      `json:"updated_at" gorm:"autoUpdateTime"`
 	DeletedAt    gorm.DeletedAt `json:"deleted_at" gorm:"index"`
-	DepartmentID uuid.UUID      `json:"department_id" gorm:"type:varchar(36)"`
-	Department   Department     `json:"department"`
+	DepartmentID uuid.UUID      `json:"department_id" gorm:"type:varchar(36);default:NULL"`
+	Department   Department     `json:"-" gorm:"foreignKey:DepartmentID;references:ID"`
 }
 
 type Job struct {
