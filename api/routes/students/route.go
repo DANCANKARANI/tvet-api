@@ -14,6 +14,7 @@ func SetStudentRoutes(app *fiber.App) {
 	auth := app.Group("/api/v1/student")
 	auth.Post("/register",student.CreateStudentAccount)
 	auth.Post("/login",student.Login)
+	auth.Get("/all",student.GetAllStudent)
 	//protected routes
 	userGroup := auth.Group("/",student.JWTMiddleware)
 	userGroup.Get("/",student.GetOneStudentHandler)

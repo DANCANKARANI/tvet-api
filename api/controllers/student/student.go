@@ -20,3 +20,11 @@ func UpdateStudentHandler(c *fiber.Ctx)error{
 	}
 	return utilities.ShowSuccess(c,"user updated successfully",fiber.StatusOK,response)
 }
+
+func GetAllStudent(c *fiber.Ctx)error{
+	response, err := model.GetAllUsersDetails(c)
+	if err != nil{
+		return utilities.ShowError(c,err.Error(),fiber.StatusInternalServerError)
+	}
+	return utilities.ShowSuccess(c,"successfully retrieved all students",fiber.StatusOK, response)
+}
