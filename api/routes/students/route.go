@@ -12,10 +12,7 @@ func SetStudentRoutes(app *fiber.App) {
         AllowHeaders: "Origin, Content-Type, Accept",
     }))
 	auth := app.Group("/api/v1/student")
+	auth.Get("/all",student.GetAllStudent)
 	auth.Post("/register",student.CreateStudentAccount)
 	auth.Post("/login",student.Login)
-	auth.Get("/all",student.GetAllStudent)
-	//protected routes
-	userGroup := auth.Group("/",student.JWTMiddleware)
-	userGroup.Get("/one",student.GetOneStudentHandler)
-}
+	}
