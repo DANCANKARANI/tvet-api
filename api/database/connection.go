@@ -13,13 +13,18 @@ import (
 func ConnectDB() *gorm.DB {
     // Load .env file
     log.Println("Welcome")
+    dbUser := os.Getenv("DB_USER")
+  
+   if dbUser ==""{
     err := godotenv.Load(".env")
     if err != nil {
         log.Fatalf("Error loading .env file: %v", err)
     }
+    dbUser = os.Getenv("DB_USER")
+   }
 
     // Retrieve environment variables
-    dbUser := os.Getenv("DB_USER")
+   
     password := os.Getenv("DB_PASSWORD")
     dbName := os.Getenv("DB_NAME")
     host := os.Getenv("DB_HOST")
