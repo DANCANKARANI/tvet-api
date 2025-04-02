@@ -10,7 +10,7 @@ import (
 type Student struct {
 	ID           uuid.UUID      `json:"id" gorm:"type:varchar(36);primary_key"`
 	FullName     string         `json:"full_name" gorm:"size:255"`
-	Email        string         `json:"email" gorm:"size:255;unique"`
+	Email        string         `json:"email" gorm:"size:255"`
 	PhoneNumber  string         `json:"phone_number" gorm:"size:255;unique"`
 	Password     string         `json:"password" gorm:"size:255"`
 	CreatedAt    time.Time      `json:"created_at" gorm:"autoCreateTime"`
