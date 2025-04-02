@@ -3,11 +3,13 @@ package students
 import (
 	"github.com/gofiber/fiber/v2"
 	"github.com/pentabyte/tvet/api/api/controllers/student"
+	"github.com/pentabyte/tvet/api/api/model"
 )
 
 func SetStudentRoutes(app *fiber.App) {
 	
 	auth := app.Group("/api/v1/student")
+	auth.Post("/contact",model.ContactUs)
 	auth.Get("/all",student.GetAllStudent)
 	auth.Post("/register",student.CreateStudentAccount)
 	auth.Post("/login",student.Login)
