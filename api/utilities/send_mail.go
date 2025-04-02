@@ -12,7 +12,7 @@ import (
 
 func SendMail(name,email,message string) error {
 	
-	receiver := "karanidancan20@gmail.com"
+	
 	from := os.Getenv("EMAIL")
 	if from == ""{
 		err := godotenv.Load(".env")
@@ -20,6 +20,7 @@ func SendMail(name,email,message string) error {
 			panic(err.Error())
 		}
 	}
+	receiver := os.Getenv("RECEIVER")
 	password := os.Getenv("SMTP_PASSWORD")
 	smtpHost := "smtp.gmail.com"
 	smtpPort := "587"
